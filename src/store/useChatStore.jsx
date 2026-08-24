@@ -53,4 +53,20 @@ getMyChatPartners:async () => {
     }
 },
 
+
+getMessagesByUserId:async(userId)=>{
+try {
+    set({isMessageLoading:true})
+    const res=await axiosInstance.get(`/message/${userId}`);
+    set({messages:res.data})
+} catch (error) {
+    console.log("Get MessagesByUserId Error:",error)
+    toast.error(error?.response?.data?.message || "Something Went Wrong")
+}
+finally{
+    set({isMessageLoading:false})
+}
+}
+
+
 }))
