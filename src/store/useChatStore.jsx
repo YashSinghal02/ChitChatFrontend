@@ -10,7 +10,8 @@ messages:[],
 activeTab:"chats",
 isUserLoading:false,
 isMessageLoading:false,
-isSoundEnabled:localStorage.getItem("isSoundEnabled") === true,
+// string true never equal to boolean true
+isSoundEnabled:JSON.parse(localStorage.getItem("isSoundEnabled")) === true,
 
 toggleSound:()=>{
     localStorage.setItem("isSoundEnabled",!get().isSoundEnabled);
