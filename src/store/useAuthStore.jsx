@@ -68,6 +68,7 @@ updateProfile :async (data) => {
   } catch (error) {
     console.log("Update profile Error:",error);
     toast.error(error.response?.data?.message);
+   
   }
   finally{
     set({ isUpdating: false})
