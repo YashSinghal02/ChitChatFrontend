@@ -1,27 +1,26 @@
 import { useEffect } from "react";
-import { useChatStore } from "../store/useChatStore"
+import { useChatStore } from "../store/useChatStore";
 import NoChatsFound from "./NoChatsFound";
 import UsersLoadingSkeleton from "./UsersLoadingSkeleton";
 
-
+import { useAuthStore } from "../store/useAuthStore";
 
 function ContactList() {
-  const{getAllContacts,isUserLoading,allContacts,setSelctedUser}=useChatStore();
+  const { getAllContacts, isUserLoading, allContacts, setSelctedUser } =
+    useChatStore();
+  const { onlineUsers } = useAuthStore();
 
   useEffect(() => {
-    getAllContacts()
-
+    getAllContacts();
   }, [getAllContacts]);
 
-  if(isUserLoading){
-    return <UsersLoadingSkeleton/>
+  if (isUserLoading) {
+    return <UsersLoadingSkeleton />;
   }
 
-  if(allContacts.length === 0){
-    return <NoChatsFound/>
+  if (allContacts.length === 0) {
+    return <NoChatsFound />;
   }
-  
-
 
   return (
     <>
@@ -32,18 +31,25 @@ function ContactList() {
           onClick={() => setSelctedUser(contact)}
         >
           <div className="flex items-center gap-3">
-            {/* todo: here we use the socket and fix online status */}
-            <div className={`avatar online`}>
+            {/* here we use the socket to fix online status */}
+            <div
+              className={`avatar ${onlineUsers.includes(contact._id) ? "online" : "offline"}`}
+            >
               <div className="size-12 rounded-full">
-                <img src={contact.profilePic || "/avatar.png"} alt={contact.fullName} />
+                <img
+                  src={contact.profilePic || "/avatar.png"}
+                  alt={contact.fullName}
+                />
               </div>
             </div>
-            <h4 className="text-slate-200 font-medium truncate">{contact.fullName}</h4>
+            <h4 className="text-slate-200 font-medium truncate">
+              {contact.fullName}
+            </h4>
           </div>
         </div>
       ))}
     </>
-  )
+  );
 }
 
-export default ContactList
+export default ContactList;
