@@ -9,7 +9,7 @@
 }
 
 .input {
-  @apply w-full bg-slate-800/50 border border-slate-700 rounded-lg py-2 pl-10 pr-4 text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent;
+  @apply w-full bg-[#2d2154]/50 border border-[#6d5a9e]/60 rounded-lg py-2 pl-10 pr-4 text-slate-200 placeholder-slate-400 focus:border-2 focus:border-[#533993];
 }
 
 .auth-input-icon {
@@ -21,15 +21,16 @@
 }
 
 .auth-badge {
-  @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-cyan-500/20 text-cyan-300;
+  @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full
+    bg-[#533993]/20 text-[#c4b1f2] border border-[#533993]/40;
 }
 
 .auth-btn {
-  @apply w-full bg-cyan-500 text-white rounded-lg py-2.5 font-medium
-  hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500;
+  @apply w-full bg-[#533993] text-white rounded-lg py-2.5 font-medium
+    hover:bg-[#6245ad] focus:ring-2 focus:ring-[#533993] transition-colors;
 }
 
 .auth-link {
-  @apply px-4 py-2 inline-block bg-cyan-500/10 rounded-lg text-cyan-400
-  hover:text-cyan-500 text-sm transition-colors;
+  @apply px-4 py-2 inline-block bg-[#533993]/15 rounded-lg text-[#b69bea] border border-[#533993]/40
+    hover:bg-[#533993]/25 hover:text-white text-sm transition-all duration-300;
 }

@@ -11,11 +11,17 @@ function ChatPage() {
   const{activeTab,selectedUser}=useChatStore();
 
   return (
-    <div className="relative w-full max-w-6xl h-[800px]">
-      <BorderAnimatedContainer>
+    <div className="relative w-full max-w-6xl h-[660px]">
+      <div className="w-full h-full rounded-2xl border flex overflow-hidden  border-white/30">
 
         {/* Left Side */}
-        <div className="w-80 bg-slate-800/50 backdrop-blur-sm flex flex-col ">
+        <div className="w-72  bg-[linear-gradient(to_right,#00000099,#00000080)] backdrop-blur-[10px] border-r border-white/10  flex flex-col">
+
+        {/* Logo */}
+
+        <div className="p-4 border-b border-slate-700/50">
+        <img src="/logo.png" alt="logo" className="w-40 h-auto object-contain" />
+        </div>
 
         <ProfileHeader/>
         <ActiveTabSwitch/>
@@ -27,12 +33,12 @@ function ChatPage() {
         </div>
 
         {/* Right Side */}
-        <div className="flex-1 flex flex-col  bg-slate-900/50 backdrop-blur-sm ">
+        <div className="flex-1 flex flex-col  bg-[linear-gradient(to_right,#000000b0,#00000082)] backdrop-blur-[10px] border-r border-white/10 ">
         {selectedUser? <ChatContainer/> : <NoConversationContainer/>}
 
         </div>
 
-      </BorderAnimatedContainer>
+      </div>
     </div>
   );
 }
