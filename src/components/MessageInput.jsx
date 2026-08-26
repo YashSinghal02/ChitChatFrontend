@@ -77,7 +77,7 @@ function MessageInput() {
             setText(e.target.value);
             isSoundEnabled && playRandomSound();
           }}
-          className="flex-1 bg-slate-800/50 border border-slate-700/50 rounded-lg py-2 px-4  text-white"
+          className="flex-1 bg-[#111827]/80 border border-slate-700/50 rounded-full py-2 px-4 text-white outline-none focus:border-[#533993] transition-colors duration-300  "
           placeholder="Type your message..."
         />
 
@@ -95,8 +95,8 @@ function MessageInput() {
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className={`bg-slate-800/50 text-slate-400 hover:text-slate-200 rounded-lg px-4 transition-colors ${
-            imagePreview ? "text-cyan-500" : ""
+          className={`bg-[#111827]/80 text-slate-400 hover:text-[#b69bea] rounded-lg px-4 transition-colors ${
+            imagePreview ? "text-[#b69bea]" : ""
           }`}
         >
           <ImageIcon className="w-5 h-5" />
@@ -106,7 +106,7 @@ function MessageInput() {
         <button
           type="submit"
           disabled={!text.trim() && !imagePreview}
-          className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white rounded-lg px-4 py-2 font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-gradient-to-r from-[#47259a] to-[#46289a] text-white rounded-lg px-4 py-2 font-medium hover:from-[#6245ad] hover:to-[#533993] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <SendIcon className="w-5 h-5" />
         </button>
