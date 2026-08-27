@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* body {
+  font-family: 'Inter', sans-serif;
+} */
+
 
 @property --border-angle {
   inherits: false;
@@ -34,3 +43,19 @@
   @apply px-4 py-2 inline-block bg-[#533993]/15 rounded-lg text-[#b69bea] border border-[#533993]/40
     hover:bg-[#533993]/25 hover:text-white text-sm transition-all duration-300;
 }
+
+
+/* @keyframes loader {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(250%);
+  }
+} */
+

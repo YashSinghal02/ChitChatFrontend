@@ -81,7 +81,7 @@ function MessageInput() {
           placeholder="Type your message..."
         />
 
-        {/* Image Uplaod Input */}
+        {/* Image Upload Input */}
         <input
           type="file"
           ref={fileInputRef}
@@ -106,7 +106,7 @@ function MessageInput() {
         <button
           type="submit"
           disabled={!text.trim() && !imagePreview}
-          className="bg-gradient-to-r from-[#47259a] to-[#46289a] text-white rounded-lg px-4 py-2 font-medium hover:from-[#6245ad] hover:to-[#533993] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-gradient-to-r from-[#47259a] to-[#5a36b5] text-white rounded-lg px-4 py-2 font-medium hover:from-[#5a36b5] hover:to-[#6b46c1] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <SendIcon className="w-5 h-5" />
         </button>

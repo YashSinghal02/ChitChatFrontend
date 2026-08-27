@@ -4,11 +4,14 @@ import NoChatsFound from "./NoChatsFound";
 import UsersLoadingSkeleton from "./UsersLoadingSkeleton";
 
 import { useAuthStore } from "../store/useAuthStore";
+import NoContactFound from "./NoContactFound";
 
-function ContactList() {
-  const { getAllContacts, isUserLoading, allContacts, setSelctedUser } =
-    useChatStore();
+function ContactList({ search }) {
+  const { getAllContacts, isUserLoading, allContacts, setSelctedUser } = useChatStore();
   const { onlineUsers } = useAuthStore();
+  const filteredContacts = allContacts.filter((contact) =>
+  contact.fullName?.toLowerCase().includes(search.toLowerCase())
+);
 
   useEffect(() => {
     getAllContacts();
@@ -18,13 +21,18 @@ function ContactList() {
     return <UsersLoadingSkeleton />;
   }
 
-  if (allContacts.length === 0) {
-    return <NoChatsFound />;
+   if (allContacts.length === 0) {
+  return <NoContactFound/>;
+}
+
+
+  if (search && filteredContacts.length === 0) {
+    return <NoContactFound  />;
   }
 
   return (
     <>
-      {allContacts.map((contact) => (
+      {filteredContacts.map((contact) => (
         <div
           key={contact._id}
           className=" p-3 rounded-full cursor-pointer hover:bg-[#2d2154d8] transition-colors hover:rounded-full"
@@ -33,7 +41,7 @@ function ContactList() {
           <div className="flex items-center gap-3">
             {/* here we use the socket to fix online status */}
             <div
-              className={`avatar ${onlineUsers.includes(contact._id) ? "online" : "offline"}`}
+              className={`avatar`}
             >
               <div className="size-12 rounded-full">
                 <img
@@ -41,6 +49,13 @@ function ContactList() {
                   alt={contact.fullName}
                 />
               </div>
+              <span
+          className={`absolute top-0 right-0 size-3 z-10 rounded-full border-2 border-[#15121f] ${
+            onlineUsers.includes(contact._id)
+              ? "bg-green-500"
+              : "bg-slate-400"
+          }`}
+        />
             </div>
             <h4 className="text-slate-200 font-medium truncate">
               {contact.fullName}

@@ -23,12 +23,17 @@ function ChatHeader() {
   return (
     <div className="flex justify-between items-center bg-[#111827]/80 border-b border-slate-700/50 max-h-[75px] px-6 flex-1">
       <div className="flex items-center space-x-3">
-        <div className={`avatar ${isOnline ?"online" : "offline"} `}>
+        <div className={`avatar `}>
           <div className="w-12 rounded-full">
             <img
               src={selectedUser.profilePic || "/avatar.png"}
-              alt="selectedUser.fullName"
+              alt={selectedUser.fullName}
             />
+            <span
+      className={`absolute top-0 right-0 size-3 rounded-full border-2 border-[#111827] ${
+        isOnline ? "bg-green-500" : "bg-slate-400"
+      }`}
+    />
           </div>
         </div>
 
