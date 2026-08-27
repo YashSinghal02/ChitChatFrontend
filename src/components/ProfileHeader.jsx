@@ -37,7 +37,7 @@ function ProfileHeader() {
       <div className="flex items-center justify-between">
         <div className="flex item-center gap-3">
           {/* Avatar */}
-          <div className="avatar online">
+          <div className="avatar">
             <button
               className="size-14 rounded-full overflow-hidden relative group"
               onClick={() => fileInputRef.current.click()}
@@ -52,6 +52,9 @@ function ProfileHeader() {
                 <span className="text-white text-xs">  {isUpdating ? <LoaderIcon className="w-full h-5 animate-spin text-center"/> : "Change" }</span>
               </div>
             </button>
+
+             {/* Custom online indicator */}
+  <span className="absolute top-0 right-1 size-[0.85rem] rounded-full bg-green-500 border-2 border-[#111827]" />
 
             <input
               type="file"
