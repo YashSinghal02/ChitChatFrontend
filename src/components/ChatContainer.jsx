@@ -102,7 +102,7 @@ function ChatContainer() {
                         <img
                           src={msg.image}
                           alt="Shared"
-                          className="rounded-lg h-48 object-cover"
+                          className="rounded-lg h-40 sm:h-48 max-w-full object-cover"
                         />
                       )}
                       {msg.text && <p>{msg.text}</p>}

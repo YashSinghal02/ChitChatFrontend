@@ -67,7 +67,7 @@ function MessageInput() {
       {/* form for input field */}
       <form
         onSubmit={handleSendMessages}
-        className="max-3xl mx-auto flex space-x-4"
+        className="max-w-3xl mx-auto flex gap-2 sm:space-x-4"
       >
         {/* Input For Text */}
         <input
@@ -77,7 +77,7 @@ function MessageInput() {
             setText(e.target.value);
             isSoundEnabled && playRandomSound();
           }}
-          className="flex-1 bg-[#111827]/80 border border-slate-700/50 rounded-full py-2 px-4 text-white outline-none focus:border-[#533993] transition-colors duration-300  "
+          className="flex-1 min-w-0 bg-[#111827]/80 border border-slate-700/50 rounded-full py-2 px-3 sm:px-4 text-white outline-none focus:border-[#533993] transition-colors duration-300  "
           placeholder="Type your message..."
         />
 

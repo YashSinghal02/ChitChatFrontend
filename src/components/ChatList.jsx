@@ -6,10 +6,13 @@ import { useAuthStore } from "../store/useAuthStore";
 import NoSearchResults from "./NoSearchResults";
 
 function ChatList({ search }) {
-  const { getMyChatPartners, isUserLoading, chats, setSelctedUser } = useChatStore();
+  const { getMyChatPartners, isUserLoading, chats, setSelctedUser } =
+    useChatStore();
+  const searchTerm = search.trim().toLowerCase();
   const filteredChats = chats.filter((chat) =>
-  chat.fullName?.toLowerCase().includes(search.toLowerCase())
-);
+    chat.fullName?.toLowerCase().includes(searchTerm),
+  );
+
   const { onlineUsers } = useAuthStore();
   useEffect(() => {
     getMyChatPartners();
@@ -19,13 +22,13 @@ function ChatList({ search }) {
     return <UsersLoadingSkeleton />;
   }
 
- if (chats.length === 0) {
-  return <NoChatsFound />;
-}
+  if (chats.length === 0) {
+    return <NoChatsFound />;
+  }
 
-if (search && filteredChats.length === 0) {
-  return <NoSearchResults/>;
-}
+  if (searchTerm && filteredChats.length === 0) {
+    return <NoSearchResults />;
+  }
 
   return (
     <>
@@ -37,9 +40,7 @@ if (search && filteredChats.length === 0) {
         >
           <div className="flex items-center gap-3">
             {/* here we use the socket to fix online status */}
-            <div
-              className={`avatar`}
-            >
+            <div className={`avatar`}>
               <div className="size-12 rounded-full">
                 <img
                   src={chat.profilePic || "/avatar.png"}
@@ -47,12 +48,12 @@ if (search && filteredChats.length === 0) {
                 />
               </div>
               <span
-          className={`absolute top-0 right-0 size-3 z-10 rounded-full border-2 border-[#15121f] ${
-            onlineUsers.includes(chat._id)
-              ? "bg-green-500"
-              : "bg-slate-400"
-          }`}
-        />
+                className={`absolute top-0 right-0 size-3 z-10 rounded-full border-2 border-[#15121f] ${
+                  onlineUsers.includes(chat._id)
+                    ? "bg-green-500"
+                    : "bg-slate-400"
+                }`}
+              />
             </div>
             <h4 className="text-[#F8FAFC] font-medium truncate">
               {chat.fullName}

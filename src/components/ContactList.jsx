@@ -7,11 +7,13 @@ import { useAuthStore } from "../store/useAuthStore";
 import NoContactFound from "./NoContactFound";
 
 function ContactList({ search }) {
-  const { getAllContacts, isUserLoading, allContacts, setSelctedUser } = useChatStore();
+  const { getAllContacts, isUserLoading, allContacts, setSelctedUser } =
+    useChatStore();
   const { onlineUsers } = useAuthStore();
+  const searchTerm = search.trim().toLowerCase();
   const filteredContacts = allContacts.filter((contact) =>
-  contact.fullName?.toLowerCase().includes(search.toLowerCase())
-);
+    contact.fullName?.toLowerCase().includes(searchTerm),
+  );
 
   useEffect(() => {
     getAllContacts();
@@ -21,13 +23,12 @@ function ContactList({ search }) {
     return <UsersLoadingSkeleton />;
   }
 
-   if (allContacts.length === 0) {
-  return <NoContactFound/>;
-}
+  if (allContacts.length === 0) {
+    return <NoContactFound />;
+  }
 
-
-  if (search && filteredContacts.length === 0) {
-    return <NoContactFound  />;
+  if (searchTerm && filteredContacts.length === 0) {
+    return <NoContactFound />;
   }
 
   return (
@@ -40,9 +41,7 @@ function ContactList({ search }) {
         >
           <div className="flex items-center gap-3">
             {/* here we use the socket to fix online status */}
-            <div
-              className={`avatar`}
-            >
+            <div className={`avatar`}>
               <div className="size-12 rounded-full">
                 <img
                   src={contact.profilePic || "/avatar.png"}
@@ -50,12 +49,12 @@ function ContactList({ search }) {
                 />
               </div>
               <span
-          className={`absolute top-0 right-0 size-3 z-10 rounded-full border-2 border-[#15121f] ${
-            onlineUsers.includes(contact._id)
-              ? "bg-green-500"
-              : "bg-slate-400"
-          }`}
-        />
+                className={`absolute top-0 right-0 size-3 z-10 rounded-full border-2 border-[#15121f] ${
+                  onlineUsers.includes(contact._id)
+                    ? "bg-green-500"
+                    : "bg-slate-400"
+                }`}
+              />
             </div>
             <h4 className="text-slate-200 font-medium truncate">
               {contact.fullName}
