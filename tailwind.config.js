@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       animation: {
-        border: "border 4s linear infinite",
+        border: "border 6s linear infinite",
       },
       keyframes: {
         border: {

@@ -19,7 +19,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="w-full flex items-center justify-center p-4 backdrop-blur-sm">
+    <div className="w-full flex items-center justify-center p-4">
       <div className="relative w-full max-w-[60rem] md:h-[650px] h-[650px]">
         <BorderAnimatedContainer>
           <div className="w-full flex flex-col md:flex-row">

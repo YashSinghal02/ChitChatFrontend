@@ -34,7 +34,11 @@ function SignUpPage() {
                 {/* HEADING TEXT */}
                 <div className="text-center mb-8">
                   {/* <MessageCircleIcon className="w-12 h-12 mx-auto text-slate-400 mb-4" /> */}
-                  <img src="/logo2.png" alt="logo" className="w-44 h-auto object-contain mx-auto mb-4" />
+                  <img
+                    src="/logo2.png"
+                    alt="logo"
+                    className="w-44 h-auto object-contain mx-auto mb-4"
+                  />
                   <h2 className="text-2xl font-bold text-slate-200 mb-2">
                     Create Account
                   </h2>
@@ -53,7 +57,11 @@ function SignUpPage() {
                         type="text"
                         value={formData.fullName}
                         onChange={(e) =>
-                          setFormData({ ...formData, fullName: e.target.value })
+                          // setFormData({ ...formData, fullName: e.target.value })
+                          setFormData((prev) => ({
+                            ...prev,
+                            fullName: e.target.value,
+                          }))
                         }
                         className="input"
                         placeholder="John Doe"
@@ -71,7 +79,11 @@ function SignUpPage() {
                         type="email"
                         value={formData.email}
                         onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
+                          // setFormData({ ...formData, email: e.target.value })
+                          setFormData((prev) => ({
+                            ...prev,
+                            email: e.target.value,
+                          }))
                         }
                         className="input"
                         placeholder="johndoe@gmail.com"
@@ -89,7 +101,11 @@ function SignUpPage() {
                         type="password"
                         value={formData.password}
                         onChange={(e) =>
-                          setFormData({ ...formData, password: e.target.value })
+                          // setFormData({ ...formData, password: e.target.value })
+                           setFormData((prev) => ({
+                            ...prev,
+                            password: e.target.value,
+                          }))
                         }
                         className="input"
                         placeholder="Enter your password"
