@@ -11,16 +11,26 @@ import { Link } from "react-router";
 import { useAuthStore } from "../store/useAuthStore";
 
 function SignUpPage() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    password: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   fullName: "",
+  //   email: "",
+  //   password: "",
+  // });
+
+    const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const { signup, isSignup } = useAuthStore();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signup(formData);
+    // signup(formData);
+     signup({
+      fullName,
+      email,
+      password,
+    });
   };
 
   return (
@@ -55,14 +65,8 @@ function SignUpPage() {
 
                       <input
                         type="text"
-                        value={formData.fullName}
-                        onChange={(e) =>
-                          // setFormData({ ...formData, fullName: e.target.value })
-                          setFormData((prev) => ({
-                            ...prev,
-                            fullName: e.target.value,
-                          }))
-                        }
+                        value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
                         className="input"
                         placeholder="John Doe"
                       />
@@ -77,14 +81,8 @@ function SignUpPage() {
 
                       <input
                         type="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          // setFormData({ ...formData, email: e.target.value })
-                          setFormData((prev) => ({
-                            ...prev,
-                            email: e.target.value,
-                          }))
-                        }
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="input"
                         placeholder="johndoe@gmail.com"
                       />
@@ -99,14 +97,8 @@ function SignUpPage() {
 
                       <input
                         type="password"
-                        value={formData.password}
-                        onChange={(e) =>
-                          // setFormData({ ...formData, password: e.target.value })
-                           setFormData((prev) => ({
-                            ...prev,
-                            password: e.target.value,
-                          }))
-                        }
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         className="input"
                         placeholder="Enter your password"
                       />
