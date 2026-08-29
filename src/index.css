@@ -1,14 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-/* body {
-  font-family: 'Inter', sans-serif;
-} */
 
 
 @property --border-angle {
@@ -17,8 +10,9 @@
   syntax: "<angle>";
 }
 
+
 .input {
-  @apply w-full bg-[#2d2154]/50 border border-[#6d5a9e]/60 rounded-lg py-2 pl-10 pr-4 text-slate-200 placeholder-slate-400 focus:border-2 focus:border-[#533993];
+  @apply w-full bg-[#2d2154]/50 border-2 border-[#6d5a9e]/60 rounded-lg py-2 pl-10 pr-4 text-slate-200 placeholder-slate-400 focus:border-[#533993];
 }
 
 .auth-input-icon {
