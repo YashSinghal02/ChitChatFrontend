@@ -10,12 +10,16 @@ import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
 import { useAuthStore } from "../store/useAuthStore";
 
 function LoginPage() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
   const { login, isLogin } = useAuthStore();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(formData);
+    login({
+      email,
+      password,
+    });;
   };
 
   return (
@@ -48,10 +52,8 @@ function LoginPage() {
 
                       <input
                         type="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="input"
                         placeholder="johndoe@gmail.com"
                       />
@@ -66,10 +68,8 @@ function LoginPage() {
 
                       <input
                         type="password"
-                        value={formData.password}
-                        onChange={(e) =>
-                          setFormData({ ...formData, password: e.target.value })
-                        }
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         className="input"
                         placeholder="Enter your password"
                       />
