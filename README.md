@@ -220,4 +220,6 @@ ChitChat was built as a hands-on full-stack project to gain practical experience
 
 ## 📄 License
 
-This project is available under the **MIT License**.
+This project is licensed under the [MIT License](LICENSE).
+
+Copyright © 2026 Yash Singhal..
