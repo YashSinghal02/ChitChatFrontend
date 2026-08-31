@@ -8,7 +8,7 @@ A modern and responsive **real-time chat application** built with React.js, desi
 
 ### Chat Interface
 
-![ChitChat Chat Interface](./screenshots/home.png)
+![ChitChat Chat Interface](./screenshots/chatUI.png)
 
 ### Login
 
