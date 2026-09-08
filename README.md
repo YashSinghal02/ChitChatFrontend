@@ -214,7 +214,7 @@ src/
 
 **Yash Singhal**
 
-ChitChat was built as a hands-on full-stack project to gain practical experience with modern frontend development, real-time communication, authentication, state management, responsive UI, and production deployment.
+ChitChat was built as a hands-on full-stack project to gain practical experience with modern frontend development, real-time communication, authentication, state management, responsive  UI, and production deployment.
 
 ---
 
